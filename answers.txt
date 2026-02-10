@@ -9,16 +9,16 @@
 
 4. EQ_PRIMARY is the assigned earthquake magnitude. With your new file 'Year_Mag_Country.tsv', sort the data based on the numeric value of the EQ_PRIMARY column, then list the lines for the top ten largest earthquakes.
 -(sort -k 2 -n -r Year_Mag_Country.tsv | head -10)
-1965     8.7    USA
-1716     8.8    PERU
-1812     8.8    USA
-2010     8.8    CHILE
-1700     9.0    USA
-1952     9.0    RUSSIA
-2004     9.1    INDONESIA
-2011     9.1    JAPAN
-1964     9.2    USA
 1960     9.5    CHILE
+1964     9.2    USA
+2011     9.1    JAPAN
+2004     9.1    INDONESIA
+1952     9.0    RUSSIA
+1700     9.0    USA
+2010     8.8    CHILE
+1812     8.8    USA
+1716     8.8    PERU
+1965     8.7    USA
 
 5. How many unique countries are listed in the database? Use cut,sort,uniq, wc and a few pipes | to form a single expression that answers this question.
 - (cut -f 3 Year_Mag_Country.tsv | sort -d | uniq -c | wc -l)
