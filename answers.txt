@@ -46,23 +46,33 @@
     193 MEXICO
 
 9. Create a shell script named countEq.sh that returns the total number of earthquakes for a given country, where the country is specified as the option when calling the script. Hint: see the Shell Script notes and use the special variable $1. Paste your script below and give an example calling sequence for country USA.
--
-#!/bin/bash
+- (#!/bin/bash
 
 y=$1
 file=Year_Mag_Country.tsv
 
-grep -v "USA TERRITORY" "$file"| grep "${y}"| wc -l
+grep -v "USA TERRITORY" "$file"| grep "${y}"| wc -l)
+
+255
 
 10. Create a shell script named countEq_getLargestEq.sh that returns both the total number of earthquakes AND the largest earthquake for a given country, where the country is specified as the option when calling the script. Use the echo command before each command to create labels for each returned value. Paste your script below and give an example calling sequence for country CHILE.
--
-#!/bin/bash
+-(#!/bin/bash
 
 y=$1
 file=Year_Mag_Country.tsv
 
+echo "Total Earthquakes."
+
 grep "${y}" "$file"| wc -l 
-grep "${y}" "$file"| sort -k 2 -n |tail -1
+
+echo "Largest Earthquake Mag for a Given Country."
+
+grep "${y}" "$file"| sort -k 2 -n |tail -1)
+
+Total Earthquakes.
+192
+Largest Earthquake Mag for a Given Country.
+1960     9.5    CHILE
 
 11. Compute the total number of earthquakes each year and then output a sorted list of the top ten years with the most earthquakes. Paste your command and the top ten list below.
 - (cut -f 1 Year_Mag_Country.tsv | uniq -c | sort -n -r | head -10)
@@ -78,4 +88,3 @@ grep "${y}" "$file"| sort -k 2 -n |tail -1
      59 2011
 
 12. Turn in your homework by sharing it with us on a GitHub repository. Share this repository with us. Clone the repository to your laptop. Save your answers to the exercises above in a text file called answers.txt. Use git to commit answers.txt to your repository on your laptop, and then push the changes to the remote repository on GitHub.
--
